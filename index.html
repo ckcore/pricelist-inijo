@@ -275,6 +275,60 @@
 
             @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
             @keyframes zoomIn { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: scale(1); } }
+			
+/* --- Kontak Page Styles --- */
+.info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    padding: 15px 20px; 
+    border-bottom: 1px solid var(--border);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-header {
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-value {
+    color: var(--text-muted);
+    line-height: 1.4;
+    font-size: 0.95rem;
+	margin: 0;
+}
+
+.whatsapp-link {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.holiday-row {
+    display: flex;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.holiday-row:last-child {
+    border-bottom: none;
+}
+
+.holiday-date {
+    min-width: 80px;
+    font-weight: 800;
+    color: var(--text-muted);
+}
         </style>
     </head>
     <body data-theme="light">
@@ -331,30 +385,33 @@
                 </div>
             </section>
 
-            <section id="kontak-page" class="page">
-                <h2>Kontak Kami</h2>
-                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);">
-                    <p><strong>🗺️ Lokasi:</strong> Jl. Hasanuddin No.24, Kel. Singkil Satu, Kec. Singkil, Kota Manado, Sulawesi Utara 95234</p>
-                    <p><strong>📞 WhatsApp:</strong> 0812-4455-6677</p>
-                </div>
-                <h2>Waktu Operasional</h2>
-                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);">
-                    <p><strong>Senin - Minggu</strong>: 08 AM - 9 PM</p>
-                </div>
-                <h2>Libur Hari Raya</h2>
-                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);display:inline-flex;">
-                    <div style="min-width: 105px;"><strong>01 JAN</strong></div><div>TUTUP (Tahun Baru)</div>
-                </div>
-                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);display:inline-flex;">
-                    <div style="min-width: 105px;"><strong>18/19 MAR</strong></div><div>TUTUP (Idul Fitri)</div>
-                </div>
-                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);display:inline-flex;">
-                    <div style="min-width: 105px;"><strong>25 DES</strong></div><div>TUTUP (Natal)</div>
-                </div>
-                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);display:inline-flex;">
-                    <div style="min-width: 105px;"><strong>31 DES</strong></div><div>08 AM - 06 PM (Akhir Tahun)</div>
-                </div>
-            </section>
+<section id="kontak-page" class="page">
+    <h2>Kontak Kami</h2>
+    <div class="info-card">
+        <div class="info-row">
+            <div class="info-header"><span>🗺️</span> <strong>Lokasi</strong></div>
+            <div class="info-value">Jl. Hasanuddin No.24, Kel. Singkil Satu, Kec. Singkil, Kota Manado, Sulawesi Utara</div>
+        </div>
+        <div class="info-row">
+            <div class="info-header"><span>📞</span> <strong>WhatsApp</strong></div>
+            <a href="https://wa.me/6281244556677" class="whatsapp-link">0812-4455-6677</a>
+        </div>
+    </div>
+
+    <h2>Waktu Operasional</h2>
+    <div class="info-card" style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <strong>Senin - Minggu</strong>
+        <span style="color: var(--primary); font-weight: bold;">08 AM - 9 PM</span>
+    </div>
+
+    <h2>Libur Hari Raya</h2>
+    <div class="info-card">
+        <div class="holiday-row"><div class="holiday-date">1 Jan</div><div>Tutup <small>(Tahun Baru)</small></div></div>
+        <div class="holiday-row"><div class="holiday-date">18 Mar</div><div>Tutup <small>(Idul Fitri)</small></div></div>
+        <div class="holiday-row"><div class="holiday-date">25 Des</div><div>Tutup <small>(Natal)</small></div></div>
+        <div class="holiday-row"><div class="holiday-date">31 Des</div><div>8am - 6pm <small>(Akhir Tahun)</small></div></div>
+    </div>
+</section>
 
             <nav class="bottom-nav">
                 <a href="#" class="nav-item active" onclick="navigate('kiloan', this)">
