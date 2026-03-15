@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>INIJO - Pricelist</title>
-        <link rel="icon" href="uploads/2026-03-10 menu-icon.png" type="image/png">
+        <link rel="icon" href="uploads/2026-03-15-menu-blue.png" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -13,7 +13,8 @@
         <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/all/all.min.css'>
         <style>
             :root {
-                --primary: #d4a017;
+                /* Biru yang lebih cerah & ceria untuk mode terang */
+                --primary: #0095ff;       
                 --bg: #ffffff;
                 --surface: #f8f9fa;
                 --text: #1a1a1a;
@@ -22,7 +23,8 @@
             }
 
             [data-theme="dark"] {
-                --primary: #ffcc00;
+                /* Biru yang Anda sukai untuk mode gelap */
+                --primary: #0077cc;       
                 --bg: #121212;
                 --surface: #1e1e1e;
                 --text: #ffffff;
@@ -68,6 +70,7 @@
             .top-row { display: flex; align-items: center; gap: 10px; }
             .search-wrapper { flex: 1; position: relative; }
             .search-bar {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                 width: 100%;
                 padding: 10px 15px 10px 40px;
                 border-radius: 20px;
@@ -101,6 +104,7 @@
             }
 
             .category-dropdown {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                 width: 100%;
                 padding: 8px 35px 8px 15px;
                 font-size: 0.85rem;
@@ -188,7 +192,22 @@
                 transform: translateX(-50%);}
             .nav-item { text-decoration: none; color: var(--text-muted); font-size: 0.7rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
             .nav-item.active { color: var(--primary); }
-            .logo-center { background: var(--primary); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: -40px; border: 4px solid var(--bg); }
+            .logo-center { background: var(--primary); text-decoration: none !important; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: -40px; border: 4px solid var(--bg); }
+
+            /* Mengubah warna ikon di dalam lingkaran biru agar lebih kontras */
+            .logo-center .brand-logo {
+                color: #ffffff; 
+                text-shadow: none; /* Hilangkan shadow agar terlihat bersih di atas biru */
+            }
+
+            .logo-center .brand-logo::after {
+                display: none;
+            }
+
+            .logo-center .brand-logo [data-lucide] {
+                stroke: #ffffff; /* Mengubah garis ikon Lucide jadi putih */
+                stroke-width: 2.5; /* Sedikit lebih tebal agar jelas */
+            }
 
             /* Modal Styles */
             .modal-overlay{
@@ -233,7 +252,7 @@
             }
 
             .brand-logo::after {
-                content: '';
+                background: var(--primary); /* Otomatis mengikuti biru */
                 display: block;
                 position: absolute;
                 bottom: -4px;
@@ -315,8 +334,25 @@
             <section id="kontak-page" class="page">
                 <h2>Kontak Kami</h2>
                 <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);">
-                    <p><strong>📍 Lokasi:</strong> Jl. Boulevard No. 88, Manado</p>
+                    <p><strong>🗺️ Lokasi:</strong> Jl. Hasanuddin No.24, Kel. Singkil Satu, Kec. Singkil, Kota Manado, Sulawesi Utara 95234</p>
                     <p><strong>📞 WhatsApp:</strong> 0812-4455-6677</p>
+                </div>
+                <h2>Waktu Operasional</h2>
+                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);">
+                    <p><strong>Senin - Minggu</strong>: 08 AM - 9 PM</p>
+                </div>
+                <h2>Libur Hari Raya</h2>
+                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);display:inline-flex;">
+                    <div style="min-width: 105px;"><strong>01 JAN</strong></div><div>TUTUP (Tahun Baru)</div>
+                </div>
+                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);display:inline-flex;">
+                    <div style="min-width: 105px;"><strong>18/19 MAR</strong></div><div>TUTUP (Idul Fitri)</div>
+                </div>
+                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);display:inline-flex;">
+                    <div style="min-width: 105px;"><strong>25 DES</strong></div><div>TUTUP (Natal)</div>
+                </div>
+                <div style="background:var(--surface); padding:20px; border-radius:15px; border: 1px solid var(--border);display:inline-flex;">
+                    <div style="min-width: 105px;"><strong>31 DES</strong></div><div>08 AM - 06 PM (Akhir Tahun)</div>
                 </div>
             </section>
 
@@ -370,30 +406,6 @@
                 { id: 4, cat: 'Servis Sendiri', type: 'kiloan', title: "Kering Saja", price: "15.000/load (Max 7kg)", desc: "Penggunaan pengering sekali.", img: "https://cdn.discordapp.com/attachments/1482221063118127225/1482225229358170182/Dryer-LG-Titan-Max.png?ex=69b62d51&is=69b4dbd1&hm=d95fa23caf76cadbc53e7805b90e36e57ff41d45c8e4beee328a4f88aa4f0722" },
                 { id: 5, cat: 'Servis Sendiri', type: 'kiloan', title: "Cuci & Kering", price: "24.000/load (Max 7kg)", desc: "Penggunaan mesin cuci dan pengering sekali.", img: "https://cdn.discordapp.com/attachments/1482221063118127225/1482225732498489474/images.png?ex=69b62dc9&is=69b4dc49&hm=d4a2a043292e0ec42e31fc90ea28bceda51a2af8e7def0c544cd0d4ec692e71e" },
                 { id: 99, cat: 'Linen', type: 'satuan', title: "Handuk", price: "10.000", desc: "Handuk Ukuran M.", img: "https://media.discordapp.net/attachments/1482221063118127225/1482228463124353205/4107RS_TTWA_-_8389-2.png?ex=69b63054&is=69b4ded4&hm=08da66acc13a59c99f81420b0a21c6a66626d884a5c6136f8922f59ba04f9b33&=&format=webp&quality=lossless" }
-                <!-- { id: 1, cat: 'Makanan', type: 'menu', title: "Ayam Goreng Lengkuas", price: "25k", desc: "Ayam kampung bumbu rempah.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuI0M3rEryxbHkwq0i5cAgAN1iNdK8_ldraA&s" }, -->
-                <!-- { id: 2, cat: 'Makanan', type: 'menu', title: "Nasi Goreng Spesial", price: "30k", desc: "Nasi goreng topping komplit.", img: "https://assets.unileversolutions.com/recipes-v2/258063.jpg" }, -->
-                <!-- { id: 3, cat: 'Makanan', type: 'menu', title: "Sate Ayam Madura", price: "28k", desc: "10 tusuk sate bumbu kacang.", img: "https://assets.pikiran-rakyat.com/crop/0x0:0x0/720x0/webp/photo/2021/10/12/460178680.jpg" }, -->
-                <!-- { id: 4, cat: 'Makanan', type: 'menu', title: "Mie Goreng Jawa", price: "22k", desc: "Mie kuning dengan sayur segar.", img: "https://whattocooktoday.com/wp-content/uploads/2010/11/mie-goreng-jawa-21.jpg" }, -->
-                <!-- { id: 5, cat: 'Makanan', type: 'menu', title: "Rawon Daging", price: "35k", desc: "Khas Jawa Timur dengan kluwek.", img: "🍲" }, -->
-                <!-- { id: 6, cat: 'Makanan', type: 'menu', title: "Gado-Gado", price: "18k", desc: "Sayuran siram saus kacang.", img: "🥗" }, -->
-                <!-- { id: 7, cat: 'Makanan', type: 'menu', title: "Ikan Bakar Rica", price: "45k", desc: "Ikan laut segar bumbu pedas.", img: "🐟" }, -->
-                <!-- { id: 8, cat: 'Makanan', type: 'menu', title: "Soto Betawi", price: "32k", desc: "Kuah santan daging sapi gurih.", img: "🥣" }, -->
-                <!-- { id: 9, cat: 'Makanan', type: 'menu', title: "Rendang Sapi", price: "38k", desc: "Daging empuk bumbu padang.", img: "🥩" }, -->
-                <!-- { id: 10, cat: 'Makanan', type: 'menu', title: "Capcay Seafood", price: "25k", desc: "Tumis sayur dengan udang.", img: "🥦" }, -->
-                <!-- { id: 11, cat: 'Minuman', type: 'menu', title: "Es Kopi Susu", price: "15k", desc: "Kopi susu gula aren.", img: "🥤" }, -->
-                <!-- { id: 12, cat: 'Minuman', type: 'menu', title: "Teh Tarik Dingin", price: "12k", desc: "Teh susu khas melayu.", img: "🍹" }, -->
-                <!-- { id: 13, cat: 'Minuman', type: 'menu', title: "Juice Mangga", price: "18k", desc: "Buah mangga segar.", img: "🍹" }, -->
-                <!-- { id: 14, cat: 'Minuman', type: 'menu', title: "Es Jeruk Peras", price: "10k", desc: "Jeruk lokal asli.", img: "🍹" }, -->
-                <!-- { id: 15, cat: 'Minuman', type: 'menu', title: "Lemon Tea", price: "12k", desc: "Teh dengan lemon.", img: "🍋" }, -->
-                <!-- { id: 16, cat: 'Minuman', type: 'menu', title: "Soda Gembira", price: "15k", desc: "Soda, susu, sirup.", img: "🍷" }, -->
-                <!-- { id: 17, cat: 'Snack', type: 'menu', title: "Pisang Goreng Keju", price: "15k", desc: "Pisang manis keju.", img: "🍌" }, -->
-                <!-- { id: 18, cat: 'Snack', type: 'menu', title: "Tempe Mendoan", price: "12k", desc: "5 tempe goreng tepung.", img: "🧇" }, -->
-                <!-- { id: 19, cat: 'Snack', type: 'menu', title: "Cireng Bumbu Rujak", price: "15k", desc: "Cireng kenyal saus pedas.", img: "🥯" }, -->
-                <!-- { id: 20, cat: 'Snack', type: 'menu', title: "Kentang Goreng", price: "20k", desc: "French fries gurih.", img: "🍟" }, -->
-                <!-- { id: 21, cat: 'Makanan', type: 'paket', title: "Paket Hemat A", price: "40k", desc: "Nasi + Ayam + Es Teh.", img: "🍱" }, -->
-                <!-- { id: 22, cat: 'Makanan', type: 'paket', title: "Paket Hemat B", price: "35k", desc: "Nasi + Soto + Es Teh.", img: "🍱" }, -->
-                <!-- { id: 23, cat: 'Kopi Tiam', type: 'menu', title: "Paket Hemat B", price: "35k", desc: "Nasi + Soto + Es Teh.", img: "🍱" }, -->
-                <!-- { id: 24, cat: 'Lunch Box', type: 'paket', title: "Paket Hemat B", price: "35k", desc: "Nasi + Soto + Es Teh.", img: "🍱" }, -->
             ];
 
             const CATEGORY_ALL = "Semua";
